@@ -8,4 +8,4 @@ RUN cd /tmp \
   && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer 
 
 COPY . /usr/share/nginx/html
-RUN composer install  --no-scripts
+RUN composer install --no-scripts
