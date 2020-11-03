@@ -1,6 +1,6 @@
-FROM tcyfree/lnmp-docker
+FROM tcyfree/apnsc:v1
 
-
+RUN mv .env.example .env
 # install composer
 RUN cd /tmp \
   && wget https://install.phpcomposer.com/composer.phar \
@@ -11,4 +11,4 @@ EXPOSE 80
 COPY . /usr/share/nginx/html
 #RUN composer install --no-scripts
 
-RUN composer install --no-scripts
+RUN composer install
