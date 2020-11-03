@@ -1,9 +1,6 @@
 FROM tcyfree/apnsc:v1
 
 COPY . /usr/share/nginx/html
-RUN chmod 777 env.txt
-RUN  sh ./run.sh
-#COPY .env .env
 
 # install composer
 RUN cd /tmp \
