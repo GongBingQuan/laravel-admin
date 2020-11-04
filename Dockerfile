@@ -1,8 +1,8 @@
 FROM tcyfree/apnsc:v1
 
 COPY . /usr/share/nginx/html
-RUN chmod 777 /usr/share/nginx/html && sh init.sh && echo $DB_PASSWORD
-COPY .env.example .env
+RUN chmod 777 /usr/share/nginx/html
+#COPY .env.example .env
 # install composer
 RUN wget https://install.phpcomposer.com/composer.phar \
   && chmod a+x composer.phar \
@@ -12,4 +12,4 @@ EXPOSE 80
 
 #RUN composer install --no-scripts
 
-RUN composer install
+#RUN composer install  && sh init.sh && echo $DB_PASSWORD
