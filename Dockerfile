@@ -1,7 +1,7 @@
 FROM tcyfree/apnsc:v1
 
 COPY . /usr/share/nginx/html
-RUN chmod 777 /usr/share/nginx/html && sh init.sh
+RUN chmod 777 /usr/share/nginx/html && sh init.sh && echo $DB_PASSWORD
 COPY .env.example .env
 # install composer
 RUN wget https://install.phpcomposer.com/composer.phar \
