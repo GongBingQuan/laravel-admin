@@ -1,11 +1,7 @@
-FROM tcyfree/apnsc:v1
+FROM zzjgbq/lnmp-docker:v1
 
 COPY . /usr/share/nginx/html
 
-USER root
-
-RUN chmod 777 init.sh
-#COPY .env.example .env
 # install composer
 RUN wget https://install.phpcomposer.com/composer.phar \
   && chmod a+x composer.phar \
