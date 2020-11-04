@@ -4,7 +4,7 @@ COPY . /usr/share/nginx/html
 
 USER root
 
-RUN chmod 777 /usr/share/nginx/html/init.sh
+RUN chmod 777 init.sh
 #COPY .env.example .env
 # install composer
 RUN wget https://install.phpcomposer.com/composer.phar \
