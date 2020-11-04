@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 chmod 777 ./
 if [ ! -f "./.env" ];then
   echo ".env不存在"

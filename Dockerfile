@@ -1,6 +1,9 @@
 FROM tcyfree/apnsc:v1
 
 COPY . /usr/share/nginx/html
+
+USER root
+
 RUN chmod 777 /usr/share/nginx/html/init.sh
 #COPY .env.example .env
 # install composer
