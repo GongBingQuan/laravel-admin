@@ -1,10 +1,4 @@
 #!/bin/bash
-set -e
-supervisord --nodaemon --configuration /etc/supervisor/conf.d/supervisord.conf
-
-/usr/sbin/crond   -f  -L  /var/log/cron/cron.log
-
-#exec redis-server --requirepass develop
 
 if [ ! -f "./env" ];then
   echo ".env不存在"
@@ -14,3 +8,13 @@ if [ ! -f "./env" ];then
   mv .env.example .env
   composer install
 fi
+
+
+set -e
+supervisord --nodaemon --configuration /etc/supervisor/conf.d/supervisord.conf
+
+/usr/sbin/crond   -f  -L  /var/log/cron/cron.log
+
+#exec redis-server --requirepass develop
+
+
