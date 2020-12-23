@@ -70,7 +70,7 @@ class BannerController extends AdminController
         $form = new Form(new Banner());
         $form->text('title', __('Title'));
         $form->checkbox('site')->options([1 => '发现页 banner', 2 => '线路页 banner',3 => '发现页 icon']);
-        $form->image('image', __('Image'));
+        $form->image('image', __('Image'))->uniqueName();
         $form->url('url', __('Url'));
         $states = [
             'on'  => ['value' => 1, 'text' => '启用', 'color' => 'success'],

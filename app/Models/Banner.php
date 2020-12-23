@@ -29,7 +29,10 @@ class Banner extends Model
             return [1 => '发现页 banner', 2 => '线路页 banner',3 => '发现页 icon'][$item];
         },$site);
     }
-   
+    public function getImageAttribute($value)
+    {
+        return url("upload/".$value);
+    }
 
     public function setSiteAttribute($value)
     {
