@@ -103,9 +103,4 @@ return [
     'prev'                   => '上一步',
     'next'                   => '下一步',
     'quick_create'           => '快速创建',
-    "ID"=> "ID",
-    "Created at"=>"创建时间",
-    "Updated at"=>"更新时间",
-    "name"=>"名字",
-    "email"=>"邮箱"
 ];
