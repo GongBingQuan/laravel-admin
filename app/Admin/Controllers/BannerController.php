@@ -28,11 +28,12 @@ class BannerController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('title', __('Title'));
-        $grid->column('site', __('Site'));
-        $grid->column('image', __('Image'));
-        $grid->column('state', __('State'));
-        $grid->column('created_at', __('Created_at'));
-        $grid->column('updated_at', __('Updatetime'));
+        $grid->column('site', __('Site'))->label('success');
+        $grid->column('image', __('Image'))->image();
+        $grid->column('url', __('Url'))->link();
+        $grid->column('state', __('State'))->bool();
+        $grid->column('created_at', __('Created_at'))->date('Y-m-d');
+        $grid->column('updated_at', __('Updatetime'))->date('Y-m-d');
 
         return $grid;
     }
@@ -49,8 +50,9 @@ class BannerController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('title', __('Title'));
-        $show->field('site', __('Site'));
-        $show->field('image', __('Image'));
+        $show->field('site', __('Site'))->label('success');
+        $show->field('image', __('Image'))->image();
+        $show->field('url', __('Url'))->link();
         $show->field('state', __('State'));
         $show->field('created_at', __('Created_at'));
         $show->field('updated_at', __('Updated_at'));
@@ -66,15 +68,10 @@ class BannerController extends AdminController
     protected function form()
     {
         $form = new Form(new Banner());
-        $form->saving(function (Form $form) {
-
-            dump($form->site);
-        
-        });
         $form->text('title', __('Title'));
-        $form->text('site', __('Site'));
-        // $form->checkbox('site')->checkbox([0 => '发现页', 1 => '线路页']);
-        $form->multipleImage('image', __('Image'));
+        $form->checkbox('site')->options([1 => '发现页 banner', 2 => '线路页 banner',3 => '发现页 icon']);
+        $form->image('image', __('Image'));
+        $form->url('url', __('Url'));
         $states = [
             'on'  => ['value' => 1, 'text' => '启用', 'color' => 'success'],
             'off' => ['value' => 0, 'text' => '禁用', 'color' => 'danger'],
