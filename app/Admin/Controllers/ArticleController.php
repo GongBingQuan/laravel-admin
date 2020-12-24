@@ -32,10 +32,11 @@ class ArticleController extends AdminController
         $grid->column('content', __('Content'));
         $grid->column('files', __('Files'));
         $grid->column('state', __('State'));
-        $grid->column('createtime', __('Createtime'));
-        $grid->column('updatetime', __('Updatetime'));
+        
         $grid->column('browse_count', __('Browse count'));
         $grid->column('like_count', __('Like count'));
+        $grid->column('createtime', __('Createtime'))->date('Y-m-d');
+        $grid->column('updatetime', __('Updatetime'))->date('Y-m-d');
 
         return $grid;
     }
@@ -56,10 +57,11 @@ class ArticleController extends AdminController
         $show->field('content', __('Content'));
         $show->field('files', __('Files'));
         $show->field('state', __('State'));
-        $show->field('createtime', __('Createtime'));
-        $show->field('updatetime', __('Updatetime'));
+        
         $show->field('browse_count', __('Browse count'));
         $show->field('like_count', __('Like count'));
+        $show->field('createtime', __('Createtime'));
+        $show->field('updatetime', __('Updatetime'));
 
         return $show;
     }
@@ -73,13 +75,11 @@ class ArticleController extends AdminController
     {
         $form = new Form(new Article());
 
-        $form->number('admin_id', __('Admin id'));
         $form->text('title', __('Title'));
-        $form->textarea('content', __('Content'));
+        $form->ckeditor('content', __('Content'));
         $form->text('files', __('Files'));
         $form->text('state', __('State'));
-        $form->number('createtime', __('Createtime'));
-        $form->number('updatetime', __('Updatetime'));
+        
         $form->number('browse_count', __('Browse count'));
         $form->number('like_count', __('Like count'));
 
